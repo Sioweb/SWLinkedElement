@@ -20,7 +20,7 @@ foreach($GLOBALS['TL_DCA']['tl_content']['palettes'] as $pKey => &$palette)
 {
 	if(!is_array($palette))
 	{
-		$palette = preg_replace('/(\{type_legend\},[^;]+);/is','$1,linkedElement;',$palette);
+		$palette = preg_replace('/(\{type_legend\},[^;]+);/is','$1,linkedElement,linkedElementTarget;',$palette);
 	}
 }
 
@@ -37,3 +37,5 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['linkedElement'] = array
 	),
 	'sql'                     => "varchar(255) NOT NULL default ''"
 );
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['linkedElementTarget'] = $GLOBALS['TL_DCA']['tl_content']['fields']['target'];
